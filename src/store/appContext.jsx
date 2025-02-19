@@ -3,14 +3,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const ContactContext = createContext();
 
-const URL = "https://playground.4geeks.com/apis/fake/contact/";
+const URL = "https://playground.4geeks.com/contact/agendas?offset=0&limit=100";
 
 export const ContactProvider = ({ children }) => {
   const [contacts, setContacts] = useState([]);
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch(`${URL}agenda/my_agenda`);
+      const response = await fetch(`${URL}`);
       const data = await response.json();
       setContacts(data);
     } catch (error) {
