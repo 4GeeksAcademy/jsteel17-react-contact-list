@@ -45,7 +45,7 @@ const AddContact = () => {
             type="text"
             className="form-control"
             name="full_name"
-            value={contact.full_name}
+            value={contact.name}
             onChange={handleChange}
             required
           />

@@ -1,9 +1,9 @@
-import React from "react";
-import { useContacts } from "../store/appContext";
+import React, { useContext } from "react";
+import { ContactContext } from "../store/appContext";
 import ContactCard from "../components/contactCard";
 
 const Contacts = () => {
-  const { contacts } = useContacts();
+  const { contacts } = useContext(ContactContext);
 
   return (
     <div>

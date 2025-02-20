@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useContacts } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
+import contactpic from "../assets/img/contactpic.jpg";
+
 
 const ContactCard = ({ contact }) => {
   const { deleteContact } = useContacts();
@@ -17,13 +19,13 @@ const ContactCard = ({ contact }) => {
     <div className="card mb-3 shadow-sm p-3">
       <div className="d-flex align-items-center">
         <img
-          src="https://via.placeholder.com/80"
+          src={contactpic}
           alt="Profile"
           className="rounded-circle me-3"
         />
 
         <div className="flex-grow-1">
-          <h5 className="mb-1">{contact.full_name}</h5>
+          <h5 className="mb-1">{contact.name}</h5>
           <p className="mb-1">
             <i className="fas fa-map-marker-alt text-secondary me-2"></i>
             {contact.address}

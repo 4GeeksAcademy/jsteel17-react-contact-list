@@ -1,22 +1,24 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const ContactContext = createContext();
+export const ContactContext = createContext();
 
-const URL = "https://playground.4geeks.com/contact/agendas?offset=0&limit=100";
+const URL = "https://playground.4geeks.com/contact/agendas";
 
 export const ContactProvider = ({ children }) => {
   const [contacts, setContacts] = useState([]);
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch(`${URL}`);
+      const response = await fetch(`${URL}/claudio/contacts`);
       const data = await response.json();
-      setContacts(data);
+      setContacts(data.contacts);
+      console.log(data)
     } catch (error) {
       console.error("Error fetching contacts:", error);
-    }
+      }
   };
+  
 
   const addContact = async (contact) => {
     try {
@@ -47,7 +49,7 @@ export const ContactProvider = ({ children }) => {
   const deleteContact = async (id) => {
     try {
       const response = await fetch(`${URL}${id}`, { method: "DELETE" });
-      if (response.ok) fetchContacts(); // Refresh contacts after deleting
+      if (response.ok) fetchContacts();
     } catch (error) {
       console.error("Error deleting contact:", error);
     }
