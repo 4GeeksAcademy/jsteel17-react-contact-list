@@ -9,7 +9,7 @@ const AddContact = () => {
   const editingContact = location.state?.contact || null;
 
   const [contact, setContact] = useState({
-    full_name: "",
+    name: "",
     email: "",
     phone: "",
     address: "",
@@ -44,7 +44,7 @@ const AddContact = () => {
           <input
             type="text"
             className="form-control"
-            name="full_name"
+            name="name"
             value={contact.name}
             onChange={handleChange}
             required
